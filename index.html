@@ -394,27 +394,164 @@
       </div>
     </section>
 
-    <!-- APPLICATIONS -->
-    <section id="applications" class="alt">
-      <div class="container center">
+    
+<!-- EVERGLADE ROLEPLAY APPLICATIONS -->
+<section id="applications" class="alt">
 
-        <div class="eyebrow">Start Your Career</div>
+  <div class="eyebrow">
+    EVERGLADE ROLEPLAY RECRUITMENT
+  </div>
 
-        <h2>
-          Department
-          <span class="green">Applications</span>
-        </h2>
+  <h2>
+    Department <span class="green">Applications</span>
+  </h2>
 
-        <p class="subtitle">
-          Interested in joining a department?
-          Choose your department below and apply.
-        </p>
+  <p class="subtitle">
+    Choose your department and start your career
+    with Everglade Roleplay.
+  </p>
 
-        <div class="grid" id="application-grid">
-        </div>
+  <div class="grid">
 
-      </div>
-    </section>
+    <!-- FLORIDA HIGHWAY PATROL -->
+    <div class="card">
+      <div class="symbol">🚔</div>
+      <h3>Florida Highway patrol</h3>
+      <p>
+        Join the Florida Highway patrol and
+        protect our highways.
+      </p>
+      <a class="btn primary"
+         id="apply-fhp"
+         href="#applications">
+        APPLICATIONS COMING SOON
+      </a>
+    </div>
+
+    <!-- BROWARD COUNTY SHERIFF -->
+    <div class="card">
+      <div class="symbol">⭐</div>
+      <h3>Broward County Sheriff’s Office</h3>
+      <p>
+        Serve the county through patrol,
+        investigations, and public safety.
+      </p>
+      <a class="btn primary"
+         id="apply-bcso"
+         href="#applications">
+        APPLICATIONS COMING SOON
+      </a>
+    </div>
+
+    <!-- FORT LAUDERDALE POLICE -->
+    <div class="card">
+      <div class="symbol">🚓</div>
+      <h3>Fort Lauderdale Police Department</h3>
+      <p>
+        Protect the city and serve
+        the community.
+      </p>
+      <a class="btn primary"
+         id="apply-flpd"
+         href="#applications">
+        APPLICATIONS COMING SOON
+      </a>
+    </div>
+
+    <!-- ORANGE COUNTY FIRE -->
+    <div class="card">
+      <div class="symbol">🚒</div>
+      <h3>Orange County fire department</h3>
+      <p>
+        Respond to fires, rescues,
+        and emergencies.
+      </p>
+      <a class="btn primary"
+         id="apply-ocfd"
+         href="#applications">
+        APPLICATIONS COMING SOON
+      </a>
+    </div>
+
+    <!-- CLAYTON COUNTY DOT -->
+    <div class="card">
+      <div class="symbol">🚧</div>
+      <h3>Clayton County DOT</h3>
+      <p>
+        Manage traffic, maintain roads,
+        and assist motorists.
+      </p>
+      <a class="btn primary"
+         id="apply-ccdot"
+         href="#applications">
+        APPLICATIONS COMING SOON
+      </a>
+    </div>
+
+    <!-- CIVILIAN OPERATIONS -->
+    <div class="card">
+      <div class="symbol">🚗</div>
+      <h3>Civillian Operations</h3>
+      <p>
+        Create your character and
+        develop your roleplay story.
+      </p>
+      <a class="btn primary"
+         id="apply-civ"
+         href="#applications">
+        APPLICATIONS COMING SOON
+      </a>
+    </div>
+
+    <!-- FUTURE DEPARTMENT -->
+    <div class="card">
+      <div class="symbol">🔒</div>
+      <h3>COMING SOON</h3>
+      <p>
+        Another department will be
+        announced in the future.
+      </p>
+      <span class="btn secondary">
+        COMING SOON
+      </span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- APPLICATION LINK SETTINGS -->
+<script>
+  const applicationLinks = {
+    "apply-fhp": "",
+    "apply-bcso": "",
+    "apply-flpd": "",
+    "apply-ocfd": "",
+    "apply-ccdot": "",
+    "apply-civ": ""
+  };
+
+  Object.entries(applicationLinks).forEach(([id, url]) => {
+    const button = document.getElementById(id);
+
+    if (!button) return;
+
+    if (url && /^https:\/\//i.test(url)) {
+      button.href = url;
+      button.textContent = "APPLY NOW";
+      button.target = "_blank";
+      button.rel = "noopener noreferrer";
+    } else {
+      button.removeAttribute("href");
+      button.setAttribute("aria-disabled", "true");
+      button.style.background = "#254332";
+      button.style.color = "#b2c6b8";
+      button.style.borderColor = "#254332";
+      button.style.cursor = "not-allowed";
+    }
+  });
+</script>
+
 
     <!-- RULES -->
     <section id="rules">
