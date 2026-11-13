@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Department Applications | Everglade Roleplay</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #08130d;
+      color: #f1fff5;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 55px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #10291b, #06120b);
+      border-bottom: 2px solid #36c775;
+    }
+
+    header h1 {
+      color: #62e99b;
+      font-size: 36px;
+      margin: 0 0 12px;
+    }
+
+    header p {
+      color: #bfd6c6;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .departments {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #12251a;
+      border: 1px solid #315c40;
+      border-radius: 14px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .card:hover {
+      border-color: #62e99b;
+      transform: translateY(-3px);
+      transition: .2s;
+    }
+
+    .emoji { font-size: 44px; }
+
+    .card h2 {
+      font-size: 21px;
+      min-height: 52px;
+    }
+
+    .card p {
+      color: #b6cdbd;
+    }
+
+    .button {
+      display: block;
+      background: #37c976;
+      color: #06120a;
+      text-decoration: none;
+      padding: 13px;
+      margin-top: 22px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .button:hover { background: #70eaa2; }
+
+    .back {
+      color: #70eaa2;
+      display: inline-block;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      text-align: center;
+      color: #9fb7a7;
+      padding: 35px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>EVERGLADE ROLEPLAY</h1>
+    <p>Official Department Application Center</p>
+  </header>
+
+  <main>
+    <a class="back" href="index.html">← Back to Homepage</a>
+
+    <h2>Choose Your Department</h2>
+    <p>Select the department you want to apply for. Each application contains 30 department-specific questions.</p>
+
+    <div class="departments">
+
+      <div class="card">
+        <div class="emoji">🚔</div>
+        <h2>Florida Highway Patrol</h2>
+        <p>Traffic enforcement, highway patrol, and public safety.</p>
+        <a class="button" href="fhp-application.html">Apply for FHP</a>
+      </div>
+
+      <div class="card">
+        <div class="emoji">⭐</div>
+        <h2>Broward County Sheriff's Office</h2>
+        <p>County patrol, law enforcement, and community protection.</p>
+        <a class="button" href="bcso-application.html">Apply for BCSO</a>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🚓</div>
+        <h2>Fort Lauderdale Police Department</h2>
+        <p>City policing, investigations, and emergency response.</p>
+        <a class="button" href="flpd-application.html">Apply for FLPD</a>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🚒</div>
+        <h2>Orange County Fire Department</h2>
+        <p>Fire suppression, medical response, and rescue operations.</p>
+        <a class="button" href="ocfd-application.html">Apply for OCFD</a>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🚧</div>
+        <h2>Clayton County DOT</h2>
+        <p>Roadside assistance, traffic control, and road maintenance.</p>
+        <a class="button" href="dot-application.html">Apply for DOT</a>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🏙️</div>
+        <h2>Civilian Operations</h2>
+        <p>Character development and realistic civilian roleplay.</p>
+        <a class="button" href="civilian-application.html">Apply for Civilian</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>© Everglade Roleplay | FiveM Community</footer>
+</body>
+</html>
