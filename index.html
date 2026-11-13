@@ -2,277 +2,876 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Everglade Roleplay | FiveM Community</title>
-<style>
-:root {
-  --green: #39d879;
-  --dark: #07110b;
-  --panel: #122219;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--dark);
-  color: white;
-  font-family: Arial, sans-serif;
-}
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #0c1911;
-  border-bottom: 1px solid #28563a;
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-.logo {
-  color: var(--green);
-  font-size: 22px;
-  font-weight: 900;
-}
-.logo small {
-  display: block;
-  color: white;
-  font-size: 11px;
-  letter-spacing: 3px;
-}
-nav { display: flex; flex-wrap: wrap; gap: 17px; }
-nav a {
-  color: #ddd;
-  text-decoration: none;
-  font-size: 14px;
-}
-nav a:hover { color: var(--green); }
-.hero {
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 70px 20px;
-  background:
-    linear-gradient(#06110bd9, #06110bf2),
-    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
-}
-.hero h1 {
-  font-size: clamp(38px, 7vw, 75px);
-  margin: 15px 0;
-  line-height: 1.1;
-}
-.green { color: var(--green); }
-.hero p {
-  color: #c5d5ca;
-  max-width: 650px;
-  margin: 20px auto;
-  line-height: 1.7;
-}
-.eyebrow {
-  color: var(--green);
-  letter-spacing: 3px;
-  font-size: 12px;
-  font-weight: bold;
-}
-.btn {
-  display: inline-block;
-  padding: 15px 26px;
-  border-radius: 7px;
-  margin: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-}
-.primary {
-  background: var(--green);
-  color: #07110b;
-}
-.secondary {
-  border: 1px solid var(--green);
-  color: white;
-}
-section {
-  padding: 75px 7%;
-  text-align: center;
-  scroll-margin-top: 100px;
-}
-section h2 { font-size: 34px; }
-.subtitle { color: #aabbb0; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: 35px auto;
-}
-.card {
-  background: var(--panel);
-  border: 1px solid #28563a;
-  border-radius: 12px;
-  padding: 35px 20px;
-  transition: transform .2s;
-}
-.card:hover { transform: translateY(-5px); }
-.card .symbol { font-size: 38px; }
-.card h3 { color: var(--green); }
-.card p { color: #b6c6bb; line-height: 1.6; }
-.alt { background: #0c1a11; }
-.announcement {
-  max-width: 850px;
-  margin: 30px auto;
-  background: #173321;
-  border-left: 4px solid var(--green);
-  padding: 25px;
-  border-radius: 8px;
-  text-align: left;
-}
-footer {
-  background: #050b07;
-  border-top: 1px solid #28563a;
-  padding: 30px;
-  text-align: center;
-  color: #9caea2;
-}
-@media(max-width:700px) {
-  header { justify-content: center; text-align: center; }
-  nav { justify-content: center; }
-  section { padding: 55px 20px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07120b">
+  <meta name="description" content="Everglade Roleplay - A professional FiveM roleplay community. Explore departments, applications, rules, and more.">
+  <title>Everglade Roleplay | Official Website</title>
+
+  <style>
+    :root {
+      --bg: #07120b;
+      --bg2: #0c1b12;
+      --panel: #12261a;
+      --green: #40df83;
+      --green2: #24a95d;
+      --white: #f5fff7;
+      --muted: #a7b9ac;
+      --border: #28583a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 18, 11, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1.2;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      color: var(--white);
+      letter-spacing: 3px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      font-size: 13px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #dce9df;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        linear-gradient(
+          rgba(4, 15, 8, 0.77),
+          rgba(4, 15, 8, 0.96)
+        ),
+        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.1;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 12px 0;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 20px auto;
+      color: #d1dfd5;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: #06120a;
+      border: 1px solid var(--green);
+      padding: 13px 24px;
+      margin: 7px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #72f5a5;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      color: #06120a;
+    }
+
+    .btn-disabled {
+      background: #254332;
+      border-color: #254332;
+      color: #b2c6b8;
+      cursor: not-allowed;
+    }
+
+    .btn-disabled:hover {
+      background: #254332;
+      transform: none;
+    }
+
+    section {
+      padding: 85px 0;
+      scroll-margin-top: 95px;
+    }
+
+    .alt {
+      background: var(--bg2);
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 12px auto 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px 22px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+    }
+
+    .symbol {
+      font-size: 42px;
+    }
+
+    .card h3 {
+      color: var(--green);
+      font-size: 20px;
+      margin: 15px 0;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card .btn {
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    .notice {
+      background: #173522;
+      border-left: 4px solid var(--green);
+      padding: 24px;
+      border-radius: 9px;
+      max-width: 850px;
+      margin: 30px auto;
+      text-align: left;
+    }
+
+    .notice h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    .rule-number {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 24px;
+    }
+
+    .status-box {
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 35px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .status-label {
+      color: #f4ce77;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #040a06;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 35px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: var(--green);
+    }
+
+    @media (max-width: 850px) {
+      .nav-wrap {
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      section {
+        padding: 60px 0;
+        scroll-margin-top: 160px;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">
-    EVERGLADE
-    <small>ROLEPLAY • FIVEM</small>
-  </div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#departments">Departments</a>
-    <a href="#applications">Applications</a>
-    <a href="#rules">Rules</a>
-    <a href="#staff">Staff</a>
-    <a href="#status">Status</a>
-  </nav>
-</header>
+  <!-- NAVIGATION -->
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">
+        EVERGLADE
+        <small>ROLEPLAY • FIVEM</small>
+      </a>
 
-<main>
-<div class="hero" id="home">
-  <div>
-    <div class="eyebrow">WELCOME TO EVERGLADE ROLEPLAY</div>
-    <h1>YOUR STORY<br><span class="green">STARTS HERE.</span></h1>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#departments">Departments</a>
+        <a href="#applications">Applications</a>
+        <a href="#rules">Rules</a>
+        <a href="#staff">Staff</a>
+        <a href="#status">Server Status</a>
+        <a href="#announcements">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <div class="eyebrow">
+          Welcome to Everglade Roleplay
+        </div>
+
+        <h1>
+          YOUR STORY<br>
+          <span class="green">STARTS HERE.</span>
+        </h1>
+
+        <p>
+          Welcome to Everglade Roleplay, a FiveM
+          community dedicated to realistic roleplay,
+          professional departments, and unforgettable
+          experiences.
+        </p>
+
+        <a class="btn" href="#status">
+          JOIN OUR SERVER
+        </a>
+
+        <a class="btn btn-outline" href="#departments">
+          EXPLORE DEPARTMENTS
+        </a>
+
+      </div>
+    </section>
+
+    <!-- DEPARTMENTS -->
+    <section id="departments">
+      <div class="container center">
+
+        <div class="eyebrow">Explore Your Future</div>
+
+        <h2>
+          Our <span class="green">Departments</span>
+        </h2>
+
+        <p class="subtitle">
+          Discover the departments available within
+          Everglade Roleplay.
+        </p>
+
+        <div class="grid" id="department-grid">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APPLICATIONS -->
+    <section id="applications" class="alt">
+      <div class="container center">
+
+        <div class="eyebrow">Start Your Career</div>
+
+        <h2>
+          Department
+          <span class="green">Applications</span>
+        </h2>
+
+        <p class="subtitle">
+          Interested in joining a department?
+          Choose your department below and apply.
+        </p>
+
+        <div class="grid" id="application-grid">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section id="rules">
+      <div class="container center">
+
+        <div class="eyebrow">Community Standards</div>
+
+        <h2>
+          Server <span class="green">Rules</span>
+        </h2>
+
+        <p class="subtitle">
+          Every player must follow our community rules.
+        </p>
+
+        <div class="grid">
+
+          <div class="card">
+            <div class="rule-number">01</div>
+            <h3>Respect Everyone</h3>
+            <p>
+              Treat all players and staff respectfully.
+              Harassment and discrimination are prohibited.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="rule-number">02</div>
+            <h3>No RDM or VDM</h3>
+            <p>
+              Random Deathmatch and Vehicle Deathmatch
+              are strictly prohibited.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="rule-number">03</div>
+            <h3>Realistic Roleplay</h3>
+            <p>
+              Stay in character and participate
+              in realistic roleplay scenarios.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="rule-number">04</div>
+            <h3>No Metagaming</h3>
+            <p>
+              Do not use information obtained outside
+              roleplay to gain an in-character advantage.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="rule-number">05</div>
+            <h3>No Powergaming</h3>
+            <p>
+              Do not force unrealistic actions or
+              outcomes onto other players.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="rule-number">06</div>
+            <h3>Follow Staff Instructions</h3>
+            <p>
+              Follow reasonable staff directions
+              and use proper reporting channels.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STAFF -->
+    <section id="staff" class="alt">
+      <div class="container center">
+
+        <div class="eyebrow">Community Leadership</div>
+
+        <h2>
+          Our <span class="green">Staff Team</span>
+        </h2>
+
+        <p class="subtitle">
+          Meet the people who help manage
+          Everglade Roleplay.
+        </p>
+
+        <div class="grid">
+
+          <div class="card">
+            <div class="symbol">👑</div>
+            <h3>Server Ownership</h3>
+            <p>Leadership information coming soon.</p>
+          </div>
+
+          <div class="card">
+            <div class="symbol">🛡️</div>
+            <h3>Administration</h3>
+            <p>Administrative roster coming soon.</p>
+          </div>
+
+          <div class="card">
+            <div class="symbol">⚖️</div>
+            <h3>Moderation Team</h3>
+            <p>Moderation roster coming soon.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVER STATUS -->
+    <section id="status">
+      <div class="container center">
+
+        <div class="eyebrow">Connect With Us</div>
+
+        <h2>
+          FiveM <span class="green">Server</span>
+        </h2>
+
+        <p class="subtitle">
+          Join Everglade Roleplay and begin your story.
+        </p>
+
+        <div class="status-box">
+
+          <h3>🌐 Everglade Roleplay</h3>
+
+          <p>
+            Connection:
+            <strong id="connection-text">
+              Not configured
+            </strong>
+          </p>
+
+          <p class="status-label">
+            Live status integration coming soon
+          </p>
+
+          <div id="join-container"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ANNOUNCEMENTS -->
+    <section id="announcements" class="alt">
+      <div class="container center">
+
+        <div class="eyebrow">Latest Updates</div>
+
+        <h2>
+          Community
+          <span class="green">Announcements</span>
+        </h2>
+
+        <div class="notice">
+          <h3>📢 Official Website Launch</h3>
+          <p>
+            Welcome to the official Everglade Roleplay
+            website! Our community website is now
+            available, with more features coming soon.
+          </p>
+        </div>
+
+        <div class="notice">
+          <h3>🚔 Department Recruitment</h3>
+          <p>
+            Department information is available above.
+            Application links will be activated
+            as recruitment forms are published.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
     <p>
-      Experience immersive FiveM roleplay, dedicated
-      departments, exciting opportunities, and a
-      community where every story matters.
+      <strong>EVERGLADE ROLEPLAY</strong>
     </p>
-    <a href="#status" class="btn primary">JOIN OUR SERVER</a>
-    <a href="#departments" class="btn secondary">
-      EXPLORE DEPARTMENTS
-    </a>
-  </div>
-</div>
-
-<section id="departments">
-  <div class="eyebrow">FIND YOUR PATH</div>
-  <h2>Our <span class="green">Departments</span></h2>
-  <p class="subtitle">
-    Discover the opportunities available in our community.
-  </p>
-  <div class="grid">
-    <div class="card">
-      <div class="symbol">🚓</div>
-      <h3>Law Enforcement</h3>
-      <p>Protect citizens, enforce laws, and patrol the state.</p>
-    </div>
-    <div class="card">
-      <div class="symbol">🚒</div>
-      <h3>Fire & Rescue</h3>
-      <p>Respond to fires, rescues, and emergencies.</p>
-    </div>
-    <div class="card">
-      <div class="symbol">🚑</div>
-      <h3>Medical Services</h3>
-      <p>Provide emergency medical care to the community.</p>
-    </div>
-    <div class="card">
-      <div class="symbol">🚗</div>
-      <h3>Civilian Operations</h3>
-      <p>Build your character and create unique stories.</p>
-    </div>
-  </div>
-</section>
-
-<section id="applications" class="alt">
-  <div class="eyebrow">BECOME PART OF THE TEAM</div>
-  <h2>Department <span class="green">Applications</span></h2>
-  <p class="subtitle">
-    Interested in joining one of our departments?
-  </p>
-  <p>Our online application system is coming soon.</p>
-</section>
-
-<section id="rules">
-  <div class="eyebrow">COMMUNITY STANDARDS</div>
-  <h2>Server <span class="green">Rules</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Respect</h3>
-      <p>Treat all players and staff professionally.</p>
-    </div>
-    <div class="card">
-      <h3>Realistic Roleplay</h3>
-      <p>No RDM, VDM, metagaming, or fail roleplay.</p>
-    </div>
-    <div class="card">
-      <h3>Fair Play</h3>
-      <p>No exploiting, cheating, or abusing game mechanics.</p>
-    </div>
-  </div>
-</section>
-
-<section id="staff" class="alt">
-  <div class="eyebrow">COMMUNITY LEADERSHIP</div>
-  <h2>Meet Our <span class="green">Staff</span></h2>
-  <p class="subtitle">
-    Staff roster and leadership profiles coming soon.
-  </p>
-</section>
-
-<section id="status">
-  <div class="eyebrow">CONNECT WITH US</div>
-  <h2>Server <span class="green">Status</span></h2>
-  <div class="announcement">
-    <h3>🌐 Everglade Roleplay FiveM Server</h3>
-    <p>Server connection details will be added here.</p>
-    <p>Live player counts and server status are coming soon.</p>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="eyebrow">LATEST NEWS</div>
-  <h2>Community <span class="green">Announcements</span></h2>
-  <div class="announcement">
-    <h3>📢 Welcome to Everglade Roleplay!</h3>
     <p>
-      Our official community website is being developed.
-      Stay tuned for new features and announcements.
+      © 2026 Everglade Roleplay.
+      All rights reserved.
     </p>
-  </div>
-</section>
-</main>
+    <p>
+      Professional FiveM Roleplay Community
+    </p>
+  </footer>
 
-<footer>
-  <p>© 2026 Everglade Roleplay. All rights reserved.</p>
-  <p>Built for the Everglade Roleplay FiveM Community.</p>
-</footer>
+  <script>
+    /*
+      WEBSITE SETTINGS
+
+      Add your actual FiveM join code below.
+      Example: "abc123"
+
+      Leave blank until you have the code.
+    */
+    const FIVEM_JOIN_CODE = "";
+
+    /*
+      DEPARTMENT SETTINGS
+
+      Add each published Google Forms responder
+      link inside the applicationUrl quotes.
+
+      Example:
+      applicationUrl: "https://docs.google.com/forms/d/e/..."
+    */
+
+    const departments = [
+      {
+        name: "Florida Highway patrol",
+        icon: "🚔",
+        description:
+          "Highway patrol, traffic enforcement, and statewide law enforcement.",
+        applicationUrl: ""
+      },
+      {
+        name: "Broward County Sheriff’s Office",
+        icon: "⭐",
+        description:
+          "County patrol, investigations, and community protection.",
+        applicationUrl: ""
+      },
+      {
+        name: "Fort Lauderdale Police Department",
+        icon: "🚓",
+        description:
+          "City policing, emergency response, and public safety.",
+        applicationUrl: ""
+      },
+      {
+        name: "Orange County fire department",
+        icon: "🚒",
+        description:
+          "Fire suppression, rescue operations, and emergency response.",
+        applicationUrl: ""
+      },
+      {
+        name: "Clayton County DOT",
+        icon: "🚧",
+        description:
+          "Road maintenance, traffic control, and roadside assistance.",
+        applicationUrl: ""
+      },
+      {
+        name: "Civillian Operations",
+        icon: "🚗",
+        description:
+          "Build your character, run businesses, and create your own roleplay stories.",
+        applicationUrl: ""
+      },
+      {
+        name: "COMING SOON",
+        icon: "🔒",
+        description:
+          "A new department will be announced in the future.",
+        applicationUrl: "",
+        comingSoon: true
+      }
+    ];
+
+    function createElement(tag, className, text) {
+      const element = document.createElement(tag);
+
+      if (className) {
+        element.className = className;
+      }
+
+      if (text !== undefined) {
+        element.textContent = text;
+      }
+
+      return element;
+    }
+
+    function validApplicationUrl(url) {
+      if (!url) return false;
+
+      try {
+        const parsed = new URL(url);
+
+        return (
+          parsed.protocol === "https:" &&
+          (
+            parsed.hostname === "docs.google.com" ||
+            parsed.hostname === "forms.gle"
+          )
+        );
+      } catch {
+        return false;
+      }
+    }
+
+    function createApplicationButton(department) {
+      if (
+        department.comingSoon ||
+        !validApplicationUrl(department.applicationUrl)
+      ) {
+        return createElement(
+          "span",
+          "btn btn-disabled",
+          "APPLICATIONS COMING SOON"
+        );
+      }
+
+      const link = createElement(
+        "a",
+        "btn",
+        "APPLY NOW"
+      );
+
+      link.href = department.applicationUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+
+      return link;
+    }
+
+    function renderDepartments() {
+      const departmentGrid =
+        document.getElementById("department-grid");
+
+      const applicationGrid =
+        document.getElementById("application-grid");
+
+      departments.forEach((department) => {
+        // Department card
+        const card = createElement("article", "card");
+
+        card.appendChild(
+          createElement(
+            "div",
+            "symbol",
+            department.icon
+          )
+        );
+
+        card.appendChild(
+          createElement(
+            "h3",
+            "",
+            department.name
+          )
+        );
+
+        card.appendChild(
+          createElement(
+            "p",
+            "",
+            department.description
+          )
+        );
+
+        if (!department.comingSoon) {
+          const explore = createElement(
+            "a",
+            "btn btn-outline",
+            "VIEW APPLICATIONS"
+          );
+
+          explore.href = "#applications";
+          card.appendChild(explore);
+        } else {
+          card.appendChild(
+            createElement(
+              "span",
+              "btn btn-disabled",
+              "COMING SOON"
+            )
+          );
+        }
+
+        departmentGrid.appendChild(card);
+
+        // Application card
+        const appCard =
+          createElement("article", "card");
+
+        appCard.appendChild(
+          createElement(
+            "div",
+            "symbol",
+            department.icon
+          )
+        );
+
+        appCard.appendChild(
+          createElement(
+            "h3",
+            "",
+            department.name
+          )
+        );
+
+        appCard.appendChild(
+          createApplicationButton(department)
+        );
+
+        applicationGrid.appendChild(appCard);
+      });
+    }
+
+    function setupFiveM() {
+      const code = FIVEM_JOIN_CODE.trim();
+
+      if (!/^[a-zA-Z0-9]+$/.test(code)) {
+        document.getElementById(
+          "connection-text"
+        ).textContent = "Coming Soon";
+
+        document.getElementById(
+          "join-container"
+        ).appendChild(
+          createElement(
+            "span",
+            "btn btn-disabled",
+            "JOIN LINK COMING SOON"
+          )
+        );
+
+        return;
+      }
+
+      document.getElementById(
+        "connection-text"
+      ).textContent = "cfx.re/join/" + code;
+
+      const joinButton = createElement(
+        "a",
+        "btn",
+        "CONNECT TO FIVEM"
+      );
+
+      joinButton.href =
+        "https://cfx.re/join/" + code;
+
+      joinButton.target = "_blank";
+      joinButton.rel = "noopener noreferrer";
+
+      document.getElementById(
+        "join-container"
+      ).appendChild(joinButton);
+    }
+
+    renderDepartments();
+    setupFiveM();
+  </script>
 
 </body>
 </html>
