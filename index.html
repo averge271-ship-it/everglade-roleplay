@@ -894,6 +894,102 @@
 
     setInterval(updateServerStatus, 60000);
   </script>
+    
+
+<script>
+const STAFF_API =
+  "https://everglade-staff-api.lildarky271.workers.dev/staff";
+
+const STAFF_RANKS = [
+  "Owner",
+  "Co-Owner",
+  "Developer",
+  "Administrator",
+  "Moderator"
+];
+
+async function loadDiscordStaff() {
+  const container = document.getElementById("staff-container");
+  const status = document.getElementById("staff-status");
+
+  if (!container || !status) return;
+
+  status.textContent = "Loading Discord staff...";
+
+  try {
+    const response = await fetch(STAFF_API);
+
+    if (!response.ok) {
+      throw new Error("API error: " + response.status);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data.staff)) {
+      throw new Error("Invalid staff data");
+    }
+
+    container.replaceChildren();
+
+    for (const rank of STAFF_RANKS) {
+      const members = data.staff.filter(
+        member => member.rank === rank
+      );
+
+      if (members.length === 0) continue;
+
+      const section = document.createElement("section");
+      section.className = "staff-rank-section";
+
+      const title = document.createElement("h3");
+      title.className = "staff-rank-title";
+      title.textContent = rank;
+
+      const grid = document.createElement("div");
+      grid.className = "staff-grid";
+
+      for (const member of members) {
+        const card = document.createElement("article");
+        card.className = "staff-card";
+
+        const avatar = document.createElement("img");
+        avatar.className = "staff-avatar";
+        avatar.src = member.avatar;
+        avatar.alt = member.name + "'s Discord avatar";
+        avatar.loading = "lazy";
+
+        const name = document.createElement("div");
+        name.className = "staff-name";
+        name.textContent = member.name;
+
+        const badge = document.createElement("span");
+        badge.className = "staff-rank";
+        badge.textContent = rank;
+
+        card.append(avatar, name, badge);
+        grid.appendChild(card);
+      }
+
+      section.append(title, grid);
+      container.appendChild(section);
+    }
+
+    status.textContent = container.children.length
+      ? ""
+      : "No staff members found.";
+
+  } catch (error) {
+    console.error("Discord staff error:", error);
+    status.textContent =
+      "Unable to load Discord staff. Please try again later.";
+  }
+}
+
+loadDiscordStaff();
+
+// Refresh the staff list every 5 minutes.
+setInterval(loadDiscordStaff, 300000);
+</script>
 
 </body>
 </html>
