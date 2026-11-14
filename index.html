@@ -1,869 +1,890 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07130d">
-  <meta name="description" content="Everglade Roleplay - A FiveM roleplay community.">
-  <title>Everglade Roleplay | FiveM Community</title>
-  
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07130d">
+<meta name="description" content="Everglade Roleplay - A FiveM roleplay community.">
+<title>Everglade Roleplay | FiveM Community</title>
 
-  <style>
-    :root {
-      --bg: #07130d;
-      --bg2: #0d1d14;
-      --card: #11251a;
-      --green: #39e58b;
-      --green2: #1ab866;
-      --text: #f0fff5;
-      --muted: #b2c6b9;
-      --border: #254633;
-    }
+<style>
+:root {
+  --bg: #07130d;
+  --bg2: #0d1d14;
+  --card: #11251a;
+  --green: #39e58b;
+  --green2: #1ab866;
+  --text: #f0fff5;
+  --muted: #b2c6b9;
+  --border: #254633;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+html { scroll-behavior: smooth; }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
 
-    header {
-      background: rgba(7, 19, 13, 0.96);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,19,13,.97);
+  border-bottom: 1px solid var(--border);
+}
 
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .logo {
-      color: var(--green);
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+.logo {
+  color: var(--green);
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 17px;
-      align-items: center;
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 17px;
+}
 
-    .nav-links a {
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--muted);
-    }
+.nav-links a {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: bold;
+}
 
-    .nav-links a:hover {
-      color: var(--green);
-    }
+.nav-links a:hover { color: var(--green); }
 
-    section {
-      padding: 75px 22px;
-      scroll-margin-top: 90px;
-    }
+section {
+  padding: 75px 22px;
+  scroll-margin-top: 90px;
+}
 
-    .alt {
-      background: var(--bg2);
-    }
+.alt { background: var(--bg2); }
 
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
 
-    .hero {
-      min-height: 540px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      background:
-        radial-gradient(circle at center, #164a2b 0%, #07130d 70%);
-    }
+.hero {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center,#164a2b,#07130d 70%);
+}
 
-    .hero .container {
-      width: 100%;
-    }
+.hero .container { width: 100%; }
 
-    .eyebrow {
-      color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-weight: bold;
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
+.eyebrow {
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
 
-    h1 {
-      font-size: clamp(40px, 7vw, 78px);
-      line-height: 1.1;
-      margin: 12px 0;
-    }
+h1 {
+  font-size: clamp(40px,7vw,78px);
+  line-height: 1.1;
+  margin: 12px 0;
+}
 
-    h2 {
-      font-size: clamp(29px, 4vw, 43px);
-      margin: 10px 0 20px;
-    }
+h2 {
+  font-size: clamp(29px,4vw,43px);
+  margin: 10px 0 20px;
+}
 
-    h3 {
-      margin-top: 0;
-    }
+h3 { margin-top: 0; }
 
-    .green {
-      color: var(--green);
-    }
+.green { color: var(--green); }
 
-    .subtitle {
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 auto 30px;
-      font-size: 17px;
-    }
+.subtitle {
+  color: var(--muted);
+  max-width: 760px;
+  margin: 0 auto 30px;
+  font-size: 17px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 8px;
-      font-weight: bold;
-      margin: 6px;
-      transition: 0.2s;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
+.btn {
+  display: inline-block;
+  padding: 13px 23px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: .2s;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+.btn:hover { transform: translateY(-2px); }
 
-    .primary {
-      background: var(--green);
-      color: #06150b;
-    }
+.primary {
+  background: var(--green);
+  color: #06150b;
+}
 
-    .primary:hover {
-      background: #76ffb1;
-    }
+.primary:hover { background: #76ffb1; }
 
-    .secondary {
-      background: transparent;
-      border-color: var(--green);
-      color: var(--green);
-    }
+.secondary {
+  background: transparent;
+  border-color: var(--green);
+  color: var(--green);
+}
 
-    .secondary:hover {
-      background: #123c25;
-    }
+.secondary:hover { background: #123c25; }
 
-    .disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
+.disabled {
+  opacity: .55;
+  pointer-events: none;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 22px;
-      margin-top: 30px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 25px;
-    }
+.card, .announcement, .status-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 25px;
+}
 
-    .card:hover {
-      border-color: var(--green2);
-    }
+.card:hover { border-color: var(--green2); }
 
-    .card p {
-      color: var(--muted);
-    }
+.card p, .announcement p { color: var(--muted); }
 
-    .card-icon {
-      font-size: 35px;
-      margin-bottom: 12px;
-    }
+.card-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
 
-    .announcement {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-      margin-top: 25px;
-    }
+.announcement { margin-top: 25px; }
 
-    .status-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 30px;
-      max-width: 750px;
-      margin: 30px auto 0;
-      text-align: center;
-    }
+.status-box {
+  max-width: 750px;
+  margin: 30px auto 0;
+  text-align: center;
+  padding: 30px;
+}
 
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin: 25px 0;
-    }
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
 
-    .stat {
-      background: #091910;
-      border: 1px solid var(--border);
-      padding: 18px;
-      border-radius: 10px;
-    }
+.stat {
+  background: #091910;
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 10px;
+}
 
-    .stat strong {
-      display: block;
-      font-size: 25px;
-      color: var(--green);
-    }
+.stat strong {
+  display: block;
+  font-size: 25px;
+  color: var(--green);
+}
 
-    .stat span {
-      color: var(--muted);
-      font-size: 13px;
-    }
+.stat span {
+  color: var(--muted);
+  font-size: 13px;
+}
 
-    .rules-list {
-      padding-left: 24px;
-      color: var(--muted);
-    }
+.rules-list {
+  padding-left: 24px;
+  color: var(--muted);
+}
 
-    .rules-list li {
-      padding: 7px 0;
-    }
+.rules-list li { padding: 7px 0; }
 
-    .center {
-      text-align: center;
-    }
+.center { text-align: center; }
 
-    footer {
-      padding: 35px 20px;
-      text-align: center;
-      background: #040c07;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  background: #040c07;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
 
-    footer strong {
-      color: var(--green);
-    }
+footer strong { color: var(--green); }
 
-    @media (max-width: 650px) {
-      .nav {
-        justify-content: center;
-        text-align: center;
-      }
+/* STAFF ROSTER */
 
-      .nav-links {
-        justify-content: center;
-      }
+.staff-rank-section {
+  padding: 20px 0;
+}
 
-      section {
-        padding: 55px 18px;
-      }
+.staff-rank-title {
+  color: var(--green);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
 
-      .status-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 20px;
+}
+
+.staff-card {
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.staff-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--green);
+}
+
+.staff-name {
+  margin-top: 12px;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+.staff-rank {
+  color: var(--green);
+  font-size: 13px;
+}
+
+/* LOGIN */
+
+.login-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-overlay.active { display: flex; }
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  background: #11251a;
+  border: 2px solid var(--green);
+  border-radius: 15px;
+  padding: 30px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.login-box h2 {
+  color: var(--green);
+  text-align: center;
+  font-size: 26px;
+}
+
+.login-box label {
+  display: block;
+  margin: 15px 0 6px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 13px;
+  background: var(--bg);
+  border: 1px solid #315b40;
+  border-radius: 7px;
+  color: white;
+  font-size: 15px;
+}
+
+.login-box input:focus {
+  outline: 2px solid var(--green);
+}
+
+.login-submit {
+  width: 100%;
+  padding: 13px;
+  margin-top: 22px;
+  background: var(--green);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-submit:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.login-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#login-message {
+  margin-top: 15px;
+  text-align: center;
+  color: #ffaaaa;
+}
+
+#account-nav {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#logout-button {
+  background: transparent;
+  border: 1px solid var(--green);
+  border-radius: 7px;
+  padding: 8px 12px;
+  color: var(--green);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+[hidden] { display: none !important; }
+
+@media(max-width:650px) {
+  .nav {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-links { justify-content: center; }
+
+  section { padding: 55px 18px; }
+
+  .status-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header>
-    <nav class="nav">
-      <a class="logo" href="#home">EVERGLADE RP</a>
+<!-- NAVIGATION -->
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#departments">Departments</a>
-        <a href="#applications">Applications</a>
-        <a href="#rules">Rules</a>
-        <a href="#staff">Staff</a>
-        <a href="#status">Server Status</a>
-        <a href="#announcements">News</a>
-       
-<a href="#discord">Discord</a>
-<a href="#login" id="login-nav-button">🔐 Staff Login</a>
-</div>
+<header>
+  <nav class="nav">
+    <a class="logo" href="#home">EVERGLADE RP</a>
 
-    </nav>
-  </header>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#departments">Departments</a>
+      <a href="#applications">Applications</a>
+      <a href="#rules">Rules</a>
+      <a href="#staff">Staff</a>
+      <a href="#status">Server Status</a>
+      <a href="#announcements">News</a>
+      <a href="#discord">Discord</a>
 
-  <main>
+      <a href="#login" id="login-nav-button">
+        🔐 Staff Login
+      </a>
 
-    <!-- HOME -->
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="eyebrow">
-          Welcome to Everglade Roleplay
-        </div>
+      <span id="account-nav" hidden></span>
 
-        <h1>
-          EVERGLADE<br>
-          <span class="green">ROLEPLAY</span>
-        </h1>
+      <button id="logout-button" type="button" hidden>
+        🚪 Logout
+      </button>
+    </div>
+  </nav>
+</header>
 
-        <p class="subtitle">
-          Experience immersive FiveM roleplay,
-          professional emergency services,
-          exciting civilian opportunities,
-          and a growing community.
-        </p>
+<main>
 
-        <a href="#departments" class="btn primary">
-          EXPLORE DEPARTMENTS
-        </a>
+<!-- HOME -->
 
-        <a
-          href="https://discord.gg/xEHUfu84sE"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn secondary">
-          💬 JOIN OUR DISCORD
-        </a>
-
-        <a
-          href="https://cfx.re/join/bd9d5jp"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn secondary">
-          🎮 CONNECT TO FIVEM
-        </a>
-      </div>
-    </section>
-
-    <!-- DEPARTMENTS -->
-    <section id="departments">
-      <div class="container">
-        <div class="eyebrow">Our Departments</div>
-
-        <h2>
-          Choose Your <span class="green">Career</span>
-        </h2>
-
-        <p class="subtitle" style="margin-left:0">
-          Find your place in Everglade Roleplay.
-          Explore the opportunities available
-          throughout our community.
-        </p>
-
-        <div class="grid">
-
-          <div class="card">
-            <div class="card-icon">🚔</div>
-            <h3>Georgia State Patrol</h3>
-            <p>
-              Patrol highways, enforce traffic laws,
-              and protect motorists.
-            </p>
-            <a href="#apply-gsp" class="btn secondary">
-              Apply Now
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">⭐</div>
-            <h3>Clayton County Sheriff’s Office</h3>
-            <p>
-              Serve the county through patrol,
-              investigations, and community policing.
-            </p>
-            <a href="#apply-ccso" class="btn secondary">
-              Apply Now
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🚓</div>
-            <h3>Atlanta Police Department</h3>
-            <p>
-              Protect the city and respond to
-              emergency calls for service.
-            </p>
-            <a href="#apply-apd" class="btn secondary">
-              Apply Now
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🚒</div>
-            <h3>Clayton County Fire Department</h3>
-            <p>
-              Respond to fires, rescues,
-              medical emergencies, and disasters.
-            </p>
-            <a href="#apply-ccfd" class="btn secondary">
-              Apply Now
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🚧</div>
-            <h3>Clayton County Transportation</h3>
-            <p>
-              Maintain road safety, manage traffic,
-              and assist with roadway incidents.
-            </p>
-            <a href="#apply-cct" class="btn secondary">
-              Apply Now
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🏙️</div>
-            <h3>Civilian Operations</h3>
-            <p>
-              Create unique stories, operate
-              businesses, and build your character.
-            </p>
-            <a href="#apply-civ" class="btn secondary">
-              Apply Now
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- APPLICATIONS: ALL DEPARTMENT LINKS ARE ON THE HOMEPAGE -->
-    <section id="applications" class="alt">
-      <div class="container">
-        <div class="eyebrow">Recruitment Center</div>
-        <h2>Department <span class="green">Applications</span></h2>
-        <p class="subtitle" style="margin-left:0">
-          Choose a department below. When its application is available,
-          the button opens the official Google Form in a new tab.
-        </p>
-        <div class="grid">
-          <article class="card" id="apply-gsp">
-            <div class="card-icon">🚔</div>
-            <h3>Georgia State Patrol</h3>
-            <p>Apply to become a Georgia State Trooper and help protect our highways.</p>
-            <a id="link-gsp" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
-          </article>
-          <article class="card" id="apply-ccso">
-            <div class="card-icon">⭐</div>
-            <h3>Clayton County Sheriff’s Office</h3>
-            <p>Join county patrol, investigations, and community law enforcement.</p>
-            <a id="link-ccso" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
-          </article>
-          <article class="card" id="apply-apd">
-            <div class="card-icon">🚓</div>
-            <h3>Atlanta Police Department</h3>
-            <p>Serve the city through professional law enforcement roleplay.</p>
-            <a id="link-apd" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
-          </article>
-          <article class="card" id="apply-ccfd">
-            <div class="card-icon">🚒</div>
-            <h3>Clayton County Fire Department</h3>
-            <p>Respond to fires, rescues, and medical emergencies.</p>
-            <a id="link-ccfd" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
-          </article>
-          <article class="card" id="apply-cct">
-            <div class="card-icon">🚌</div>
-            <h3>Clayton County Transportation</h3>
-            <p>Support safe and reliable transportation operations.</p>
-            <a id="link-cct" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
-          </article>
-          <article class="card" id="apply-civ">
-            <div class="card-icon">🏙️</div>
-            <h3>Civilian Operations</h3>
-            <p>Build your character and create immersive civilian stories.</p>
-            <a id="link-civ" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- RULES -->
-    <section id="rules">
-      <div class="container">
-        <div class="eyebrow">Community Guidelines</div>
-
-        <h2>
-          Server <span class="green">Rules</span>
-        </h2>
-
-        <p>
-          All players are expected to follow
-          Everglade Roleplay community standards.
-        </p>
-
-        <div class="announcement">
-          <ol class="rules-list">
-            <li>Respect all players and staff members.</li>
-            <li>No Random Deathmatch (RDM).</li>
-            <li>No Vehicle Deathmatch (VDM).</li>
-            <li>No FailRP or unrealistic roleplay.</li>
-            <li>No metagaming or powergaming.</li>
-            <li>No exploiting, cheating, or hacking.</li>
-            <li>No harassment, discrimination, or threats.</li>
-            <li>Follow staff instructions during moderation.</li>
-            <li>Do not abuse emergency service vehicles or equipment.</li>
-            <li>Maintain realistic character behavior.</li>
-            <li>No combat logging to avoid roleplay consequences.</li>
-            <li>Do not intentionally disrupt active roleplay scenes.</li>
-            <li>Follow department policies when on duty.</li>
-            <li>Use voice communications responsibly.</li>
-            <li>Keep roleplay fair and enjoyable for everyone.</li>
-          </ol>
-
-          <p>
-            Additional rules and department policies
-            may be posted in our Discord.
-          </p>
-
-          <a
-            href="https://discord.gg/xEHUfu84sE"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn primary">
-            VIEW OUR DISCORD
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- STAFF -->
-    
-<section id="staff" class="alt">
+<section id="home" class="hero">
   <div class="container">
+    <div class="eyebrow">
+      Welcome to Everglade Roleplay
+    </div>
 
-    <div class="eyebrow">Leadership Team</div>
+    <h1>
+      EVERGLADE<br>
+      <span class="green">ROLEPLAY</span>
+    </h1>
+
+    <p class="subtitle">
+      Experience immersive FiveM roleplay,
+      professional emergency services,
+      exciting civilian opportunities,
+      and a growing community.
+    </p>
+
+    <a href="#departments" class="btn primary">
+      EXPLORE DEPARTMENTS
+    </a>
+
+    <a href="https://discord.gg/xEHUfu84sE"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn secondary">
+      💬 JOIN OUR DISCORD
+    </a>
+
+    <a href="https://cfx.re/join/bd9d5jp"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn secondary">
+      🎮 CONNECT TO FIVEM
+    </a>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+
+<section id="departments">
+  <div class="container">
+    <div class="eyebrow">Our Departments</div>
+
+    <h2>Choose Your <span class="green">Career</span></h2>
+
+    <p class="subtitle" style="margin-left:0">
+      Find your place in Everglade Roleplay.
+      Explore opportunities throughout our community.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-icon">🚔</div>
+        <h3>Georgia State Patrol</h3>
+        <p>Patrol highways, enforce traffic laws, and protect motorists.</p>
+        <a href="#apply-gsp" class="btn secondary">Apply Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3>Clayton County Sheriff's Office</h3>
+        <p>Serve the county through patrol, investigations, and community policing.</p>
+        <a href="#apply-ccso" class="btn secondary">Apply Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚓</div>
+        <h3>Atlanta Police Department</h3>
+        <p>Protect the city and respond to emergency calls for service.</p>
+        <a href="#apply-apd" class="btn secondary">Apply Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚒</div>
+        <h3>Clayton County Fire Department</h3>
+        <p>Respond to fires, rescues, medical emergencies, and disasters.</p>
+        <a href="#apply-ccfd" class="btn secondary">Apply Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚧</div>
+        <h3>Clayton County Transportation</h3>
+        <p>Maintain road safety, manage traffic, and assist with roadway incidents.</p>
+        <a href="#apply-cct" class="btn secondary">Apply Now</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏙️</div>
+        <h3>Civilian Operations</h3>
+        <p>Create unique stories, operate businesses, and build your character.</p>
+        <a href="#apply-civ" class="btn secondary">Apply Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+
+<section id="applications" class="alt">
+  <div class="container">
+    <div class="eyebrow">Recruitment Center</div>
 
     <h2>
-      Meet Our <span class="green">Staff</span>
+      Department <span class="green">Applications</span>
     </h2>
 
     <p class="subtitle" style="margin-left:0">
-      Meet the Everglade Roleplay staff team!
-      Our leadership and moderation teams help
-      keep our community organized, welcoming,
-      and enjoyable.
+      Choose a department below to open its application.
     </p>
 
-    <!-- AUTOMATIC DISCORD STAFF -->
+    <div class="grid">
+
+      <article class="card" id="apply-gsp">
+        <div class="card-icon">🚔</div>
+        <h3>Georgia State Patrol</h3>
+        <p>Apply to become a Georgia State Trooper.</p>
+        <a id="link-gsp" class="btn secondary disabled">
+          Application Coming Soon
+        </a>
+      </article>
+
+      <article class="card" id="apply-ccso">
+        <div class="card-icon">⭐</div>
+        <h3>Clayton County Sheriff's Office</h3>
+        <p>Join county patrol and investigations.</p>
+        <a id="link-ccso" class="btn secondary disabled">
+          Application Coming Soon
+        </a>
+      </article>
+
+      <article class="card" id="apply-apd">
+        <div class="card-icon">🚓</div>
+        <h3>Atlanta Police Department</h3>
+        <p>Serve the city through professional law enforcement roleplay.</p>
+        <a id="link-apd" class="btn secondary disabled">
+          Application Coming Soon
+        </a>
+      </article>
+
+      <article class="card" id="apply-ccfd">
+        <div class="card-icon">🚒</div>
+        <h3>Clayton County Fire Department</h3>
+        <p>Respond to fires, rescues, and medical emergencies.</p>
+        <a id="link-ccfd" class="btn secondary disabled">
+          Application Coming Soon
+        </a>
+      </article>
+
+      <article class="card" id="apply-cct">
+        <div class="card-icon">🚌</div>
+        <h3>Clayton County Transportation</h3>
+        <p>Support safe transportation operations.</p>
+        <a id="link-cct" class="btn secondary disabled">
+          Application Coming Soon
+        </a>
+      </article>
+
+      <article class="card" id="apply-civ">
+        <div class="card-icon">🏙️</div>
+        <h3>Civilian Operations</h3>
+        <p>Build your character and create immersive stories.</p>
+        <a id="link-civ" class="btn secondary disabled">
+          Application Coming Soon
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+
+<section id="rules">
+  <div class="container">
+    <div class="eyebrow">Community Guidelines</div>
+
+    <h2>Server <span class="green">Rules</span></h2>
+
+    <p>
+      All players must follow Everglade Roleplay community standards.
+    </p>
+
+    <div class="announcement">
+      <ol class="rules-list">
+        <li>Respect all players and staff members.</li>
+        <li>No Random Deathmatch (RDM).</li>
+        <li>No Vehicle Deathmatch (VDM).</li>
+        <li>No FailRP or unrealistic roleplay.</li>
+        <li>No metagaming or powergaming.</li>
+        <li>No exploiting, cheating, or hacking.</li>
+        <li>No harassment, discrimination, or threats.</li>
+        <li>Follow staff instructions during moderation.</li>
+        <li>Do not abuse emergency service vehicles or equipment.</li>
+        <li>Maintain realistic character behavior.</li>
+        <li>No combat logging to avoid roleplay consequences.</li>
+        <li>Do not intentionally disrupt active roleplay scenes.</li>
+        <li>Follow department policies when on duty.</li>
+        <li>Use voice communications responsibly.</li>
+        <li>Keep roleplay fair and enjoyable for everyone.</li>
+      </ol>
+
+      <p>
+        Additional rules and department policies may be posted in Discord.
+      </p>
+
+      <a href="https://discord.gg/xEHUfu84sE"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn primary">
+        VIEW OUR DISCORD
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+
+<section id="staff" class="alt">
+  <div class="container">
+    <div class="eyebrow">Leadership Team</div>
+
+    <h2>Meet Our <span class="green">Staff</span></h2>
+
+    <p class="subtitle" style="margin-left:0">
+      Our leadership and moderation teams help keep
+      Everglade Roleplay organized and welcoming.
+    </p>
+
     <div id="staff-status" role="status">
       Loading Discord staff...
     </div>
 
-    <div id="staff-container" class="staff-container">
-    </div>
-
+    <div id="staff-container"></div>
   </div>
 </section>
 
+<!-- SERVER STATUS -->
 
-    <!-- FIVEM SERVER STATUS -->
-    <section id="status">
-      <div class="container center">
-        <div class="eyebrow">Connect With Us</div>
+<section id="status">
+  <div class="container center">
+    <div class="eyebrow">Connect With Us</div>
 
-        <h2>
-          FiveM <span class="green">Server Status</span>
-        </h2>
+    <h2>
+      FiveM <span class="green">Server Status</span>
+    </h2>
 
-        <p class="subtitle">
-          Check the server status and join
-          Everglade Roleplay today.
-        </p>
+    <p class="subtitle">
+      Check the server status and join Everglade Roleplay.
+    </p>
 
-        <div class="status-box">
-          <h3>🌐 Everglade Roleplay</h3>
+    <div class="status-box">
+      <h3>🌐 Everglade Roleplay</h3>
 
-          <p>
-            Connection Code:
-            <strong class="green">bd9d5jp</strong>
-          </p>
+      <p>
+        Connection Code:
+        <strong class="green">bd9d5jp</strong>
+      </p>
 
-          <div class="status-grid">
+      <div class="status-grid">
+        <div class="stat">
+          <strong id="server-status">Checking...</strong>
+          <span>Server Status</span>
+        </div>
 
-            <div class="stat">
-              <strong id="server-status">Checking...</strong>
-              <span>Server Status</span>
-            </div>
-
-            <div class="stat">
-              <strong id="player-count">-- / --</strong>
-              <span>Online Players</span>
-            </div>
-
-          </div>
-
-          <p id="status-message">
-            Checking live FiveM server information...
-          </p>
-
-          <a
-            href="https://cfx.re/join/bd9d5jp"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn primary">
-            🎮 JOIN FIVEM SERVER
-          </a>
-
-          <button
-            class="btn secondary"
-            onclick="updateServerStatus()">
-            🔄 REFRESH STATUS
-          </button>
-
-          <p style="font-size:13px;color:var(--muted)">
-            Server information refreshes every 60 seconds.
-          </p>
+        <div class="stat">
+          <strong id="player-count">-- / --</strong>
+          <span>Online Players</span>
         </div>
       </div>
-    </section>
 
-    <!-- ANNOUNCEMENTS -->
-    <section id="announcements" class="alt">
-      <div class="container">
-        <div class="eyebrow">Latest Updates</div>
+      <p id="status-message">
+        Checking live FiveM server information...
+      </p>
 
-        <h2>
-          Community <span class="green">Announcements</span>
-        </h2>
+      <a href="https://cfx.re/join/bd9d5jp"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn primary">
+        🎮 JOIN FIVEM SERVER
+      </a>
 
-        <div class="announcement">
-          <h3>📢 Welcome to Everglade Roleplay!</h3>
+      <button id="refresh-status"
+              class="btn secondary"
+              type="button">
+        🔄 REFRESH STATUS
+      </button>
 
-          <p>
-            Welcome to the official Everglade Roleplay
-            website. Stay connected with our community
-            through Discord for the latest announcements,
-            events, and department updates.
-          </p>
+      <p style="font-size:13px;color:var(--muted)">
+        Server information refreshes every 60 seconds.
+      </p>
+    </div>
+  </div>
+</section>
 
-          <a
-            href="https://discord.gg/xEHUfu84sE"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn secondary">
-            VIEW DISCORD
-          </a>
-        </div>
+<!-- ANNOUNCEMENTS -->
 
-        <div class="announcement">
-          <h3>📋 Department Recruitment</h3>
+<section id="announcements" class="alt">
+  <div class="container">
+    <div class="eyebrow">Latest Updates</div>
 
-          <p>
-            Visit the Department Applications section above to see
-            which departments are currently accepting applications.
-          </p>
-        </div>
-      </div>
-    </section>
+    <h2>
+      Community <span class="green">Announcements</span>
+    </h2>
 
- 
-<!-- EVERGLADE ROLEPLAY DISCORD SECTION -->
+    <div class="announcement">
+      <h3>📢 Welcome to Everglade Roleplay!</h3>
+
+      <p>
+        Welcome to the official Everglade Roleplay website.
+        Stay connected through Discord for announcements,
+        events, and department updates.
+      </p>
+
+      <a href="https://discord.gg/xEHUfu84sE"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn secondary">
+        VIEW DISCORD
+      </a>
+    </div>
+
+    <div class="announcement">
+      <h3>📋 Department Recruitment</h3>
+
+      <p>
+        Visit the Department Applications section to see
+        which departments are accepting applications.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DISCORD -->
+
 <section id="discord">
   <div class="container center">
     <div class="eyebrow">JOIN OUR COMMUNITY</div>
 
-    <h2>
-      Everglade <span class="green">Discord</span>
-    </h2>
+    <h2>Everglade <span class="green">Discord</span></h2>
 
     <p class="subtitle">
       Join the official Everglade Roleplay Discord!
       Meet our community, apply for departments,
-      receive announcements, and participate in
-      exciting FiveM roleplay events.
+      receive announcements, and participate in events.
     </p>
 
     <div class="announcement">
-      <div style="font-size:50px;">💬</div>
+      <div style="font-size:50px">💬</div>
 
       <h3>Everglade Roleplay Community</h3>
 
       <p>
-        Join our growing community and start
-        your roleplay journey today!
+        Join our growing community and start your roleplay journey!
       </p>
 
-      <a
-        href="https://discord.gg/xEHUfu84sE"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn primary">
+      <a href="https://discord.gg/xEHUfu84sE"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn primary">
         💬 JOIN OUR DISCORD
       </a>
     </div>
   </div>
 </section>
 
+</main>
 
-  </main>
+<!-- FOOTER -->
 
-  <!-- FOOTER -->
-  <footer>
-    <strong>EVERGLADE ROLEPLAY</strong>
+<footer>
+  <strong>EVERGLADE ROLEPLAY</strong>
 
-    <p>
-      Real People • Real Stories • Real Roleplay
+  <p>Real People • Real Stories • Real Roleplay</p>
+
+  <p>© 2026 Everglade Roleplay. All rights reserved.</p>
+
+  <p>Independent FiveM roleplay community.</p>
+</footer>
+
+<!-- LOGIN POPUP -->
+
+<div id="login"
+     class="login-overlay"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="login-title"
+     aria-hidden="true">
+
+  <div class="login-box">
+
+    <button id="login-close"
+            class="login-close"
+            type="button"
+            aria-label="Close login">
+      ×
+    </button>
+
+    <h2 id="login-title">🔐 Staff Login</h2>
+
+    <p style="text-align:center;color:#b2c6b9">
+      Everglade Roleplay
     </p>
 
-    <p>
-      © 2026 Everglade Roleplay.
-      All rights reserved.
-    </p>
+    <form id="staff-login-form">
 
-    <p>
-      Independent FiveM roleplay community.
-    </p>
-  </footer>
+      <label for="login-username">Username</label>
 
-  <!-- WEBSITE JAVASCRIPT -->
-  <script>
-    // =====================================
-    // GOOGLE FORMS APPLICATION LINKS
-    // =====================================
-    // Replace the empty strings with your PUBLISHED Google Forms responder URLs.
-    // Example: gsp: "https://forms.gle/your-real-form-id"
-    // Do NOT use the example as a real link.
-    const applicationLinks = {
-      gsp: "https://docs.google.com/forms/d/1pm7dBOWRVHxW1h0xRLHiRTZQzHL10dBOgQ7SXideLf8/preview",   // Georgia State Patrol
-      ccso: "https://docs.google.com/forms/d/1J1QWyQJK-tAKfSyVAVjO73t0E9KeDYNg2mtjzFptRlQ/preview",  // Clayton County Sheriff's Office
-      apd: "https://docs.google.com/forms/d/1LGPA2-ReA20c37_EXXmblZWTkxKVzL5qyIm9KAP0Jsk/preview",   // Atlanta Police Department
-      ccfd: "https://docs.google.com/forms/d/1lmZUuQVZZnS4h4SMMYB1TXuYmoQQatlOm0fpc3aT_Qo/preview",  // Clayton County Fire Department
-      cct: "https://docs.google.com/forms/d/1RGyW-_z_YexEPIxt2PfOLIpumC8tdWcs5fFK6GadJgE/preview",   // Clayton County Transportation
-      civ: "https://docs.google.com/forms/d/1PHqpX07kjcdBmQGv7vXpR6lFBmnlptTYgKGmdmOURjI/preview"    // Civilian Operations
-    };
+      <input type="text"
+             id="login-username"
+             autocomplete="username"
+             maxlength="24"
+             required>
 
-    for (const [department, url] of Object.entries(applicationLinks)) {
-      const button = document.getElementById("link-" + department);
-      if (!button) continue;
-      let valid = false;
-      try {
-        const parsed = new URL(url);
-        valid = parsed.protocol === "https:" && (
-          parsed.hostname === "forms.gle" ||
-          (parsed.hostname === "docs.google.com" && parsed.pathname.startsWith("/forms/"))
-        );
-      } catch (_) { /* Empty or invalid URL stays disabled. */ }
-      if (valid) {
-        button.href = url;
-        button.target = "_blank";
-        button.rel = "noopener noreferrer";
-        button.textContent = "OPEN APPLICATION";
-        button.classList.remove("disabled");
-        button.removeAttribute("aria-disabled");
-      }
-    }
+      <label for="login-password">Password</label>
 
-    // =====================================
-    // FIVEM SERVER STATUS
-    // =====================================
+      <input type="password"
+             id="login-password"
+             autocomplete="current-password"
+             required>
 
-    const FIVEM_JOIN_CODE = "bd9d5jp";
+      <button type="submit"
+              id="login-submit"
+              class="login-submit">
+        Sign In
+      </button>
 
-    async function updateServerStatus() {
-      const statusElement =
-        document.getElementById("server-status");
+      <p id="login-message" role="status" aria-live="polite"></p>
 
-      const playerElement =
-        document.getElementById("player-count");
+    </form>
+  </div>
+</div>
 
-      const messageElement =
-        document.getElementById("status-message");
-
-      statusElement.textContent = "Checking...";
-      messageElement.textContent =
-        "Retrieving server information...";
-
-      try {
-        const apiURL =
-          "https://servers-frontend.fivem.net/api/servers/single/"
-          + encodeURIComponent(FIVEM_JOIN_CODE);
-
-        const response = await fetch(apiURL, {
-          cache: "no-store"
-        });
-
-        if (!response.ok) {
-          throw new Error("Server API unavailable");
-        }
-
-        const data = await response.json();
-        const server = data.Data;
-
-        if (!server) {
-          throw new Error("No server data returned");
-        }
-
-        const players = Number(server.clients ?? 0);
-        const maxPlayers = Number(server.sv_maxclients ?? 0);
-
-        statusElement.textContent = "ONLINE";
-        statusElement.style.color = "#39e58b";
-
-        playerElement.textContent =
-          players + " / " + maxPlayers;
-
-        messageElement.textContent =
-          "Server information updated successfully.";
-
-      } catch (error) {
-        // A failed API request does not necessarily
-        // mean that the FiveM server is offline.
-
-        statusElement.textContent = "UNAVAILABLE";
-        statusElement.style.color = "#ffc46b";
-
-        playerElement.textContent = "-- / --";
-
-        messageElement.textContent =
-          "Live status could not be retrieved. " +
-          "You can still try the Join Server button.";
-      }
-    }
-
-    updateServerStatus();
-
-    setInterval(updateServerStatus, 60000);
-  </script>
-    
+<!-- WEBSITE JAVASCRIPT -->
 
 <script>
-const STAFF_API =
-  "https://everglade-staff-api.lildarky271.workers.dev/staff";
+"use strict";
+
+// ==========================================
+// CONFIGURATION
+// ==========================================
+
+const API_BASE =
+  "https://everglade-staff-api.lildarky271.workers.dev";
+
+const FIVEM_JOIN_CODE = "bd9d5jp";
 
 const STAFF_RANKS = [
   "Owner",
@@ -873,19 +894,136 @@ const STAFF_RANKS = [
   "Moderator"
 ];
 
-async function loadDiscordStaff() {
-  const container = document.getElementById("staff-container");
-  const status = document.getElementById("staff-status");
+// ==========================================
+// GOOGLE FORMS APPLICATION LINKS
+// ==========================================
 
-  if (!container || !status) return;
+const applicationLinks = {
+  gsp: "https://docs.google.com/forms/d/1pm7dBOWRVHxW1h0xRLHiRTZQzHL10dBOgQ7SXideLf8/preview",
+  ccso: "https://docs.google.com/forms/d/1J1QWyQJK-tAKfSyVAVjO73t0E9KeDYNg2mtjzFptRlQ/preview",
+  apd: "https://docs.google.com/forms/d/1LGPA2-ReA20c37_EXXmblZWTkxKVzL5qyIm9KAP0Jsk/preview",
+  ccfd: "https://docs.google.com/forms/d/1lmZUuQVZZnS4h4SMMYB1TXuYmoQQatlOm0fpc3aT_Qo/preview",
+  cct: "https://docs.google.com/forms/d/1RGyW-_z_YexEPIxt2PfOLIpumC8tdWcs5fFK6GadJgE/preview",
+  civ: "https://docs.google.com/forms/d/1PHqpX07kjcdBmQGv7vXpR6lFBmnlptTYgKGmdmOURjI/preview"
+};
+
+for (const [department, url] of Object.entries(applicationLinks)) {
+  const button = document.getElementById("link-" + department);
+
+  if (!button) continue;
+
+  try {
+    const parsed = new URL(url);
+
+    const valid =
+      parsed.protocol === "https:" &&
+      (
+        parsed.hostname === "forms.gle" ||
+        (
+          parsed.hostname === "docs.google.com" &&
+          parsed.pathname.startsWith("/forms/")
+        )
+      );
+
+    if (!valid) continue;
+
+    button.href = url;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
+    button.textContent = "OPEN APPLICATION";
+    button.classList.remove("disabled");
+
+  } catch {
+    // Keep invalid application links disabled.
+  }
+}
+
+// ==========================================
+// FIVEM SERVER STATUS
+// ==========================================
+
+async function updateServerStatus() {
+  const statusElement =
+    document.getElementById("server-status");
+
+  const playerElement =
+    document.getElementById("player-count");
+
+  const messageElement =
+    document.getElementById("status-message");
+
+  statusElement.textContent = "Checking...";
+  messageElement.textContent = "Retrieving server information...";
+
+  try {
+    const url =
+      "https://servers-frontend.fivem.net/api/servers/single/" +
+      encodeURIComponent(FIVEM_JOIN_CODE);
+
+    const response = await fetch(url, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("Server API unavailable");
+    }
+
+    const data = await response.json();
+    const server = data.Data;
+
+    if (!server) {
+      throw new Error("Server not found");
+    }
+
+    const players = Number(server.clients ?? 0);
+    const maxPlayers = Number(server.sv_maxclients ?? 0);
+
+    statusElement.textContent = "ONLINE";
+    statusElement.style.color = "#39e58b";
+
+    playerElement.textContent =
+      players + " / " + maxPlayers;
+
+    messageElement.textContent =
+      "Server information updated successfully.";
+
+  } catch {
+    statusElement.textContent = "UNAVAILABLE";
+    statusElement.style.color = "#ffc46b";
+
+    playerElement.textContent = "-- / --";
+
+    messageElement.textContent =
+      "Live status could not be retrieved. You can still try joining.";
+  }
+}
+
+document.getElementById("refresh-status")
+  .addEventListener("click", updateServerStatus);
+
+updateServerStatus();
+setInterval(updateServerStatus, 60000);
+
+// ==========================================
+// DISCORD STAFF ROSTER
+// ==========================================
+
+async function loadDiscordStaff() {
+  const container =
+    document.getElementById("staff-container");
+
+  const status =
+    document.getElementById("staff-status");
 
   status.textContent = "Loading Discord staff...";
 
   try {
-    const response = await fetch(STAFF_API);
+    const response = await fetch(
+      API_BASE + "/staff"
+    );
 
     if (!response.ok) {
-      throw new Error("API error: " + response.status);
+      throw new Error("Staff API unavailable");
     }
 
     const data = await response.json();
@@ -901,7 +1039,7 @@ async function loadDiscordStaff() {
         member => member.rank === rank
       );
 
-      if (members.length === 0) continue;
+      if (!members.length) continue;
 
       const section = document.createElement("section");
       section.className = "staff-rank-section";
@@ -939,181 +1077,384 @@ async function loadDiscordStaff() {
       container.appendChild(section);
     }
 
-    status.textContent = container.children.length
-      ? ""
-      : "No staff members found.";
+    status.textContent =
+      container.children.length
+        ? ""
+        : "No staff members found.";
 
   } catch (error) {
-    console.error("Discord staff error:", error);
+    console.error("Staff loading error:", error);
+
     status.textContent =
       "Unable to load Discord staff. Please try again later.";
   }
 }
 
 loadDiscordStaff();
-
-// Refresh the staff list every 5 minutes.
 setInterval(loadDiscordStaff, 300000);
-</script>
 
-<!-- EVERGLADE ROLEPLAY STAFF LOGIN -->
-<style>
-  .login-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+// ==========================================
+// LOGIN SYSTEM
+// ==========================================
+
+// The token is intentionally kept in memory.
+// It is not saved in localStorage, cookies,
+// or sessionStorage.
+
+let authToken = null;
+let currentUser = null;
+let loginBusy = false;
+let previousFocus = null;
+
+const loginOverlay =
+  document.getElementById("login");
+
+const loginNavButton =
+  document.getElementById("login-nav-button");
+
+const loginForm =
+  document.getElementById("staff-login-form");
+
+const loginMessage =
+  document.getElementById("login-message");
+
+const loginSubmit =
+  document.getElementById("login-submit");
+
+const accountNav =
+  document.getElementById("account-nav");
+
+const logoutButton =
+  document.getElementById("logout-button");
+
+const loginUsername =
+  document.getElementById("login-username");
+
+const loginPassword =
+  document.getElementById("login-password");
+
+// ==========================================
+// UPDATE ACCOUNT DISPLAY
+// ==========================================
+
+function updateAccountUI() {
+  const signedIn = Boolean(authToken && currentUser);
+
+  loginNavButton.hidden = signedIn;
+  accountNav.hidden = !signedIn;
+  logoutButton.hidden = !signedIn;
+
+  if (signedIn) {
+    accountNav.textContent =
+      "👤 " + currentUser.username +
+      " | " + currentUser.role;
+  } else {
+    accountNav.textContent = "";
+  }
+}
+
+// ==========================================
+// OPEN LOGIN
+// ==========================================
+
+function openLogin() {
+  previousFocus = document.activeElement;
+
+  loginOverlay.classList.add("active");
+  loginOverlay.setAttribute("aria-hidden", "false");
+
+  document.body.style.overflow = "hidden";
+
+  loginMessage.textContent = "";
+
+  loginUsername.focus();
+}
+
+// ==========================================
+// CLOSE LOGIN
+// ==========================================
+
+function closeLogin() {
+  if (loginBusy) return;
+
+  loginOverlay.classList.remove("active");
+  loginOverlay.setAttribute("aria-hidden", "true");
+
+  document.body.style.overflow = "";
+
+  loginForm.reset();
+  loginMessage.textContent = "";
+
+  if (previousFocus && previousFocus.isConnected) {
+    previousFocus.focus();
+  }
+}
+
+loginNavButton.addEventListener("click", event => {
+  event.preventDefault();
+  openLogin();
+});
+
+document.getElementById("login-close")
+  .addEventListener("click", closeLogin);
+
+loginOverlay.addEventListener("click", event => {
+  if (event.target === loginOverlay) {
+    closeLogin();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (!loginOverlay.classList.contains("active")) {
+    return;
   }
 
-  .login-overlay.active {
-    display: flex;
+  if (event.key === "Escape") {
+    closeLogin();
+    return;
   }
 
-  .login-box {
-    width: 100%;
-    max-width: 420px;
-    background: #11251a;
-    border: 2px solid #39e58b;
-    border-radius: 15px;
-    padding: 30px;
-    color: white;
-    position: relative;
-  }
+  // Keep keyboard focus inside the login popup.
+  if (event.key === "Tab") {
+    const controls = Array.from(
+      loginOverlay.querySelectorAll(
+        "button:not([disabled]), input:not([disabled])"
+      )
+    );
 
-  .login-box h2 {
-    color: #39e58b;
-    text-align: center;
-    font-size: 26px;
-  }
+    const first = controls[0];
+    const last = controls[controls.length - 1];
 
-  .login-box label {
-    display: block;
-    margin: 15px 0 6px;
-  }
-
-  .login-box input {
-    width: 100%;
-    padding: 13px;
-    background: #07130d;
-    border: 1px solid #315b40;
-    border-radius: 7px;
-    color: white;
-    font-size: 15px;
-  }
-
-  .login-submit {
-    width: 100%;
-    padding: 13px;
-    margin-top: 22px;
-    background: #39e58b;
-    color: #07130d;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  .login-close {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    background: transparent;
-    color: white;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-  }
-
-  #login-message {
-    margin-top: 15px;
-    text-align: center;
-    color: #ffaaaa;
-  }
-</style>
-
-<div id="login" class="login-overlay"
-     role="dialog"
-     aria-modal="true"
-     aria-labelledby="login-title">
-
-  <div class="login-box">
-    <button class="login-close"
-            type="button"
-            aria-label="Close login"
-            onclick="closeLogin()">×</button>
-
-    <h2 id="login-title">🔐 Staff Login</h2>
-
-    <p style="text-align:center;color:#b2c6b9;">
-      Everglade Roleplay
-    </p>
-
-    <form id="staff-login-form">
-      <label for="login-username">Username</label>
-      <input type="text"
-             id="login-username"
-             autocomplete="username"
-             required>
-
-      <label for="login-password">Password</label>
-      <input type="password"
-             id="login-password"
-             autocomplete="current-password"
-             required>
-
-      <button type="submit" class="login-submit">
-        Sign In
-      </button>
-
-      <p id="login-message" role="status"></p>
-    </form>
-  </div>
-</div>
-
-<script>
-  const loginOverlay = document.getElementById("login");
-  const loginNavButton =
-    document.getElementById("login-nav-button");
-
-  function openLogin() {
-    loginOverlay.classList.add("active");
-    document.getElementById("login-username").focus();
-  }
-
-  function closeLogin() {
-    loginOverlay.classList.remove("active");
-    document.getElementById("staff-login-form").reset();
-    document.getElementById("login-message").textContent = "";
-  }
-
-  loginNavButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    openLogin();
-  });
-
-  loginOverlay.addEventListener("click", function(event) {
-    if (event.target === loginOverlay) {
-      closeLogin();
-    }
-  });
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-      closeLogin();
-    }
-  });
-
-  document.getElementById("staff-login-form")
-    .addEventListener("submit", function(event) {
+    if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
+      last.focus();
+    } else if (
+      !event.shiftKey &&
+      document.activeElement === last
+    ) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
 
-      document.getElementById("login-message").textContent =
-        "Login is not enabled yet. Account verification will be added next.";
-    });
+// ==========================================
+// API REQUEST HELPER
+// ==========================================
+
+async function authRequest(path, options = {}) {
+  const response = await fetch(
+    API_BASE + path,
+    {
+      ...options,
+      mode: "cors",
+      cache: "no-store"
+    }
+  );
+
+  let result;
+
+  try {
+    result = await response.json();
+  } catch {
+    throw new Error(
+      "The login server returned an invalid response."
+    );
+  }
+
+  if (!response.ok) {
+    throw new Error(
+      result.error ||
+      "Request failed (" + response.status + ")."
+    );
+  }
+
+  return result;
+}
+
+// ==========================================
+// SIGN IN
+// ==========================================
+
+loginForm.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  if (loginBusy) return;
+
+  const username = loginUsername.value.trim();
+  const password = loginPassword.value;
+
+  if (!username || !password) {
+    loginMessage.textContent =
+      "Please enter your username and password.";
+    return;
+  }
+
+  loginBusy = true;
+  loginSubmit.disabled = true;
+  loginSubmit.textContent = "Signing In...";
+
+  loginMessage.style.color = "#b2c6b9";
+  loginMessage.textContent = "Verifying your account...";
+
+  loginPassword.value = "";
+
+  let pendingToken = null;
+
+  try {
+    // Step 1: Verify credentials.
+    const result = await authRequest(
+      "/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      }
+    );
+
+    if (
+      !result.success ||
+      typeof result.token !== "string"
+    ) {
+      throw new Error("Login verification failed.");
+    }
+
+    pendingToken = result.token;
+
+    // Step 2: Verify session.
+    const verification = await authRequest(
+      "/auth/me",
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + pendingToken
+        }
+      }
+    );
+
+    if (
+      !verification.authenticated ||
+      !verification.user
+    ) {
+      throw new Error("Session verification failed.");
+    }
+
+    // Step 3: Check administrative access
+    // before displaying an administrative role.
+    const user = verification.user;
+
+    if (
+      ["Owner", "Developer", "Administrator"]
+        .includes(user.role)
+    ) {
+      await authRequest(
+        "/admin/check",
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + pendingToken
+          }
+        }
+      );
+    }
+
+    // Step 4: Sign in successfully.
+    authToken = pendingToken;
+    currentUser = user;
+
+    updateAccountUI();
+
+    loginMessage.style.color = "#39e58b";
+    loginMessage.textContent = "Login successful!";
+
+    loginOverlay.classList.remove("active");
+    loginOverlay.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "";
+    loginForm.reset();
+
+    accountNav.setAttribute("tabindex", "-1");
+    accountNav.focus();
+
+  } catch (error) {
+    // If session verification fails after login,
+    // attempt to revoke the new session.
+    if (pendingToken) {
+      try {
+        await authRequest(
+          "/auth/logout",
+          {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + pendingToken
+            }
+          }
+        );
+      } catch {
+        // The session will expire server-side.
+      }
+    }
+
+    loginMessage.style.color = "#ffaaaa";
+    loginMessage.textContent =
+      error.message || "Unable to sign in.";
+
+  } finally {
+    loginBusy = false;
+    loginSubmit.disabled = false;
+    loginSubmit.textContent = "Sign In";
+  }
+});
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+logoutButton.addEventListener("click", async () => {
+  if (!authToken) return;
+
+  const token = authToken;
+
+  logoutButton.disabled = true;
+  logoutButton.textContent = "Logging out...";
+
+  try {
+    await authRequest(
+      "/auth/logout",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }
+    );
+  } catch (error) {
+    console.warn(
+      "Server logout could not be confirmed:",
+      error
+    );
+  } finally {
+    authToken = null;
+    currentUser = null;
+
+    updateAccountUI();
+
+    logoutButton.disabled = false;
+    logoutButton.textContent = "🚪 Logout";
+  }
+});
+
+// ==========================================
+// INITIAL WEBSITE STATE
+// ==========================================
+
+updateAccountUI();
+
 </script>
 
 </body>
