@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,6 +184,7 @@
     .disabled {
       opacity: 0.55;
       cursor: not-allowed;
+      pointer-events: none;
     }
 
     .grid {
@@ -390,7 +390,7 @@
               Patrol highways, enforce traffic laws,
               and protect motorists.
             </p>
-            <a href="#apply-fhp" class="btn secondary">
+            <a href="#apply-gsp" class="btn secondary">
               Apply Now
             </a>
           </div>
@@ -402,50 +402,50 @@
               Serve the county through patrol,
               investigations, and community policing.
             </p>
-            <a href="#apply-bcso" class="btn secondary">
+            <a href="#apply-ccso" class="btn secondary">
               Apply Now
             </a>
           </div>
 
           <div class="card">
             <div class="card-icon">🚓</div>
-            <h3> Atlanta  Police Department</h3>
+            <h3>Atlanta Police Department</h3>
             <p>
               Protect the city and respond to
               emergency calls for service.
             </p>
-            <a href="#apply-flpd" class="btn secondary">
+            <a href="#apply-apd" class="btn secondary">
               Apply Now
             </a>
           </div>
 
           <div class="card">
             <div class="card-icon">🚒</div>
-            <h3>Clayton County fire department</h3>
+            <h3>Clayton County Fire Department</h3>
             <p>
               Respond to fires, rescues,
               medical emergencies, and disasters.
             </p>
-            <a href="#apply-ocfd" class="btn secondary">
+            <a href="#apply-ccfd" class="btn secondary">
               Apply Now
             </a>
           </div>
 
           <div class="card">
             <div class="card-icon">🚧</div>
-            <h3>Clayton County DOT</h3>
+            <h3>Clayton County Transportation</h3>
             <p>
               Maintain road safety, manage traffic,
               and assist with roadway incidents.
             </p>
-            <a href="#apply-ccdot" class="btn secondary">
+            <a href="#apply-cct" class="btn secondary">
               Apply Now
             </a>
           </div>
 
           <div class="card">
             <div class="card-icon">🏙️</div>
-            <h3>Civillian Operations</h3>
+            <h3>Civilian Operations</h3>
             <p>
               Create unique stories, operate
               businesses, and build your character.
@@ -459,85 +459,52 @@
       </div>
     </section>
 
-    <!-- APPLICATIONS -->
+    <!-- APPLICATIONS: ALL DEPARTMENT LINKS ARE ON THE HOMEPAGE -->
     <section id="applications" class="alt">
       <div class="container">
         <div class="eyebrow">Recruitment Center</div>
-
-        <h2>
-          Department <span class="green">Applications</span>
-        </h2>
-
+        <h2>Department <span class="green">Applications</span></h2>
         <p class="subtitle" style="margin-left:0">
-          Select the department you want to join.
-          Application forms will be linked here
-          once recruitment opens.
+          Choose a department below. When its application is available,
+          the button opens the official Google Form in a new tab.
         </p>
-
         <div class="grid">
-
-          <div class="card" id="apply-fhp">
-            <h3>Florida Highway patrol</h3>
-            <p>Highway patrol recruitment.</p>
-            <a id="link-fhp" class="btn secondary"
-               href="#applications">
-              Application Coming Soon
-            </a>
-          </div>
-
-          <div class="card" id="apply-bcso">
-            <h3>Broward County Sheriff’s Office</h3>
-            <p>Sheriff's office recruitment.</p>
-            <a id="link-bcso" class="btn secondary"
-               href="#applications">
-              Application Coming Soon
-            </a>
-          </div>
-
-          <div class="card" id="apply-flpd">
-            <h3>Fort Lauderdale Police Department</h3>
-            <p>Police department recruitment.</p>
-            <a id="link-flpd" class="btn secondary"
-               href="#applications">
-              Application Coming Soon
-            </a>
-          </div>
-
-          <div class="card" id="apply-ocfd">
-            <h3>Orange County fire department</h3>
-            <p>Fire and rescue recruitment.</p>
-            <a id="link-ocfd" class="btn secondary"
-               href="#applications">
-              Application Coming Soon
-            </a>
-          </div>
-
-          <div class="card" id="apply-ccdot">
-            <h3>Clayton County DOT</h3>
-            <p>Transportation department recruitment.</p>
-            <a id="link-ccdot" class="btn secondary"
-               href="#applications">
-              Application Coming Soon
-            </a>
-          </div>
-
-          <div class="card" id="apply-civ">
-            <h3>Civillian Operations</h3>
-            <p>Civilian roleplay recruitment.</p>
-            <a id="link-civ" class="btn secondary"
-               href="#applications">
-              Application Coming Soon
-            </a>
-          </div>
-
-          <div class="card">
-            <h3>COMING SOON</h3>
-            <p>
-              New applications will be available
-              as more departments open.
-            </p>
-          </div>
-
+          <article class="card" id="apply-gsp">
+            <div class="card-icon">🚔</div>
+            <h3>Georgia State Patrol</h3>
+            <p>Apply to become a Georgia State Trooper and help protect our highways.</p>
+            <a id="link-gsp" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
+          </article>
+          <article class="card" id="apply-ccso">
+            <div class="card-icon">⭐</div>
+            <h3>Clayton County Sheriff’s Office</h3>
+            <p>Join county patrol, investigations, and community law enforcement.</p>
+            <a id="link-ccso" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
+          </article>
+          <article class="card" id="apply-apd">
+            <div class="card-icon">🚓</div>
+            <h3>Atlanta Police Department</h3>
+            <p>Serve the city through professional law enforcement roleplay.</p>
+            <a id="link-apd" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
+          </article>
+          <article class="card" id="apply-ccfd">
+            <div class="card-icon">🚒</div>
+            <h3>Clayton County Fire Department</h3>
+            <p>Respond to fires, rescues, and medical emergencies.</p>
+            <a id="link-ccfd" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
+          </article>
+          <article class="card" id="apply-cct">
+            <div class="card-icon">🚌</div>
+            <h3>Clayton County Transportation</h3>
+            <p>Support safe and reliable transportation operations.</p>
+            <a id="link-cct" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
+          </article>
+          <article class="card" id="apply-civ">
+            <div class="card-icon">🏙️</div>
+            <h3>Civilian Operations</h3>
+            <p>Build your character and create immersive civilian stories.</p>
+            <a id="link-civ" class="btn secondary disabled" aria-disabled="true">Application Coming Soon</a>
+          </article>
         </div>
       </div>
     </section>
@@ -714,9 +681,8 @@
           <h3>📋 Department Recruitment</h3>
 
           <p>
-            Department application links will be
-            added as recruitment becomes available.
-            Check back for updates.
+            Visit the Department Applications section above to see
+            which departments are currently accepting applications.
           </p>
         </div>
       </div>
@@ -761,6 +727,8 @@
 </section>
 
 
+  </main>
+
   <!-- FOOTER -->
   <footer>
     <strong>EVERGLADE ROLEPLAY</strong>
@@ -782,39 +750,40 @@
   <!-- WEBSITE JAVASCRIPT -->
   <script>
     // =====================================
-    // DEPARTMENT APPLICATION LINKS
+    // GOOGLE FORMS APPLICATION LINKS
     // =====================================
-
-    // Paste your Google Forms URLs between
-    // the quotation marks when they are ready.
-
+    // Replace the empty strings with your PUBLISHED Google Forms responder URLs.
+    // Example: gsp: "https://forms.gle/your-real-form-id"
+    // Do NOT use the example as a real link.
     const applicationLinks = {
-      "link-fhp": "",
-      "link-bcso": "",
-      "link-flpd": "",
-      "link-ocfd": "",
-      "link-ccdot": "",
-      "link-civ": ""
+      gsp: "https://docs.google.com/forms/d/1pm7dBOWRVHxW1h0xRLHiRTZQzHL10dBOgQ7SXideLf8/preview",   // Georgia State Patrol
+      ccso: "https://docs.google.com/forms/d/1J1QWyQJK-tAKfSyVAVjO73t0E9KeDYNg2mtjzFptRlQ/preview",  // Clayton County Sheriff's Office
+      apd: "https://docs.google.com/forms/d/1LGPA2-ReA20c37_EXXmblZWTkxKVzL5qyIm9KAP0Jsk/preview",   // Atlanta Police Department
+      ccfd: "https://docs.google.com/forms/d/1lmZUuQVZZnS4h4SMMYB1TXuYmoQQatlOm0fpc3aT_Qo/preview",  // Clayton County Fire Department
+      cct: "https://docs.google.com/forms/d/1RGyW-_z_YexEPIxt2PfOLIpumC8tdWcs5fFK6GadJgE/preview",   // Clayton County Transportation
+      civ: "https://docs.google.com/forms/d/1PHqpX07kjcdBmQGv7vXpR6lFBmnlptTYgKGmdmOURjI/preview"    // Civilian Operations
     };
 
-    Object.entries(applicationLinks).forEach(
-      function([id, url]) {
-        const button = document.getElementById(id);
-
-        if (!button) return;
-
-        if (url.trim() !== "") {
-          button.href = url;
-          button.textContent = "OPEN APPLICATION";
-          button.target = "_blank";
-          button.rel = "noopener noreferrer";
-        } else {
-          button.classList.add("disabled");
-          button.setAttribute("aria-disabled", "true");
-          button.removeAttribute("href");
-        }
+    for (const [department, url] of Object.entries(applicationLinks)) {
+      const button = document.getElementById("link-" + department);
+      if (!button) continue;
+      let valid = false;
+      try {
+        const parsed = new URL(url);
+        valid = parsed.protocol === "https:" && (
+          parsed.hostname === "forms.gle" ||
+          (parsed.hostname === "docs.google.com" && parsed.pathname.startsWith("/forms/"))
+        );
+      } catch (_) { /* Empty or invalid URL stays disabled. */ }
+      if (valid) {
+        button.href = url;
+        button.target = "_blank";
+        button.rel = "noopener noreferrer";
+        button.textContent = "OPEN APPLICATION";
+        button.classList.remove("disabled");
+        button.removeAttribute("aria-disabled");
       }
-    );
+    }
 
     // =====================================
     // FIVEM SERVER STATUS
