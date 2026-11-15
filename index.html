@@ -26,8 +26,13 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: #050807;
   color: var(--text);
+  background-image: linear-gradient(rgba(0, 0, 0, .68), rgba(0, 0, 0, .78)), url("everglade-background.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
@@ -81,7 +86,7 @@ section {
   scroll-margin-top: 90px;
 }
 
-.alt { background: var(--bg2); }
+.alt { background: rgba(4, 12, 8, .45); }
 
 .container {
   max-width: 1150px;
@@ -93,7 +98,7 @@ section {
   display: flex;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle at center,#164a2b,#07130d 70%);
+  background: rgba(0, 0, 0, .16);
 }
 
 .hero .container { width: 100%; }
@@ -170,7 +175,7 @@ h3 { margin-top: 0; }
 }
 
 .card, .announcement, .status-box {
-  background: var(--card);
+  background: rgba(7, 19, 13, .89);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 25px;
@@ -231,7 +236,7 @@ h3 { margin-top: 0; }
 footer {
   padding: 35px 20px;
   text-align: center;
-  background: #040c07;
+  background: rgba(0, 0, 0, .88);
   border-top: 1px solid var(--border);
   color: var(--muted);
 }
@@ -258,7 +263,7 @@ footer strong { color: var(--green); }
 
 .staff-card {
   text-align: center;
-  background: var(--card);
+  background: rgba(7, 19, 13, .89);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 25px;
@@ -296,6 +301,7 @@ footer strong { color: var(--green); }
   section { padding: 55px 18px; }
 
   .status-grid { grid-template-columns: 1fr; }
+  body { background-attachment: scroll; background-size: auto 100vh; }
 }
 </style>
 </head>
